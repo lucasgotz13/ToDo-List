@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToDo List</title>
-</head>
-<body>
-   
+    <link rel="stylesheet" href="../src/style.css" />
+  </head>
+  <body>
+    <div id="main">
+      <div class="modal" id="modal">
+        <div class="modal-header">
+          <div class="title">Add task</div>
+          <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+          <label for="task_title">Title:</label>
+          <input type="text" name="task_title" id="task_title" required />
+          <label for="task_description">Description:</label>
+          <input
+            type="text"
+            name="task_description"
+            id="task_description"
+            required
+          />
+          <label for="task_due-date">Due Date:</label>
+          <input type="date" name="task_due-date" id="task_due-date" required />
+          <label for="task_importance">Importance:</label>
+          <select name="task_importance" id="task_importance" required>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+          <button class="submit-button" id="add-task">Add</button>
+        </div>
+      </div>
+      <div id="overlay"></div>
+      <h1 id="title">To-Do List</h1>
+      <div class="tasks-header">
+        <h2>Tasks</h2>
+        <button data-modal-target="#modal" id="open-modal">&plus;</button>
+      </div>
+    </div>
     <script src="bundle.js"></script>
-</body>
+  </body>
 </html>
