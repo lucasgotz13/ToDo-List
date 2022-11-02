@@ -135,3 +135,26 @@
     font-size: 3rem;
     font-weight: bold;
 }
+
+.task {
+    padding: 20px 35px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #F5F5F5;
+    border: 2px dashed #e4e0e0;
+    border-radius: 10px;
+    margin: 0 5px 20px 5px;
+}
+
+.task-title {
+    font-size: 18pt;
+    color: #5677FC;
+    margin-bottom: 5px;
+}
+
+.trash-can-logo {
+    margin-left: auto;
+    border: none;
+    cursor: pointer;
+}

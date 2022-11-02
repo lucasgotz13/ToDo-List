@@ -4,7 +4,7 @@ export function addTask() {
     const dateValue = document.getElementById('task_due-date').value
     const important = document.getElementById('task_importance').value
 
-    if (titleValue == "" || descValue == "" || dateValue == "") return;
+    if (titleValue == "" || dateValue == "") return;
 
     let newTodo = {
         title: titleValue,

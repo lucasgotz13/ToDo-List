@@ -16,7 +16,27 @@
   \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"addTask\": () => (/* binding */ addTask)\n/* harmony export */ });\nfunction addTask() {\r\n    const titleValue = document.getElementById('task_title').value\r\n    const descValue = document.getElementById('task_description').value\r\n    const dateValue = document.getElementById('task_due-date').value\r\n    const important = document.getElementById('task_importance').value\r\n\r\n    if (titleValue == \"\" || descValue == \"\" || dateValue == \"\") return;\r\n\r\n    let newTodo = {\r\n        title: titleValue,\r\n        description: descValue,\r\n        due_date: dateValue,\r\n        important: important \r\n    }\r\n\r\n    return newTodo\r\n}\n\n//# sourceURL=webpack://todo-list/./src/components/addTask.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"addTask\": () => (/* binding */ addTask)\n/* harmony export */ });\nfunction addTask() {\n    const titleValue = document.getElementById('task_title').value\n    const descValue = document.getElementById('task_description').value\n    const dateValue = document.getElementById('task_due-date').value\n    const important = document.getElementById('task_importance').value\n\n    if (titleValue == \"\" || dateValue == \"\") return;\n\n    let newTodo = {\n        title: titleValue,\n        description: descValue,\n        due_date: dateValue,\n        important: important \n    }\n\n    return newTodo\n}\n\n//# sourceURL=webpack://todo-list/./src/components/addTask.js?");
+
+/***/ }),
+
+/***/ "./src/components/deleteTask.js":
+/*!**************************************!*\
+  !*** ./src/components/deleteTask.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ deleteTask)\n/* harmony export */ });\nfunction deleteTask() { \n    const task = e.target.closest('.task');\n    task.remove();\n    console.log(\"delete task\");\n}\n\n\n//# sourceURL=webpack://todo-list/./src/components/deleteTask.js?");
+
+/***/ }),
+
+/***/ "./src/components/displayTask.js":
+/*!***************************************!*\
+  !*** ./src/components/displayTask.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"displayTasks\": () => (/* binding */ displayTasks)\n/* harmony export */ });\n/* harmony import */ var _assets_trash_can_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/trash-can-svgrepo-com.svg */ \"./src/assets/trash-can-svgrepo-com.svg\");\n\n\nfunction displayTasks(title, description, dueDate, priority) {\n    const tasksBody = document.querySelector(\".tasks-body\");\n    const task = document.createElement(\"div\");\n    task.classList.add(\"task\");\n    task.innerHTML = `<div><h4 class=\"task-title\">${title}</h4><p>${description}</p></div>  <p>Due-date: ${dueDate}</p> <p>Priority: ${priority}</p>`;\n    const trashIcon = document.createElement(\"button\");\n    trashIcon.classList.add(\"trash-can-logo\");\n    trashIcon.innerHTML = `<img src=${_assets_trash_can_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_0__} width=32px height=32px></img>`;\n    tasksBody.appendChild(task);\n    tasksBody.appendChild(trashIcon);\n}\n\n//# sourceURL=webpack://todo-list/./src/components/displayTask.js?");
 
 /***/ }),
 
@@ -26,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"closeModal\": () => (/* binding */ closeModal),\n/* harmony export */   \"openModal\": () => (/* binding */ openModal)\n/* harmony export */ });\nfunction openModal(modal) {\r\n    if (modal == null) return;\r\n    modal.classList.add(\"active\");\r\n    overlay.classList.add(\"active\");\r\n}\r\n\r\nfunction closeModal(modal) {\r\n    if (modal == null) return;\r\n    modal.classList.remove(\"active\");\r\n    overlay.classList.remove(\"active\");\r\n}\r\n\n\n//# sourceURL=webpack://todo-list/./src/components/openModal.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"closeModal\": () => (/* binding */ closeModal),\n/* harmony export */   \"openModal\": () => (/* binding */ openModal)\n/* harmony export */ });\nfunction openModal(modal) {\n    if (modal == null) return;\n    modal.classList.add(\"active\");\n    overlay.classList.add(\"active\");\n}\n\nfunction closeModal(modal) {\n    if (modal == null) return;\n    modal.classList.remove(\"active\");\n    overlay.classList.remove(\"active\");\n}\n\n\n//# sourceURL=webpack://todo-list/./src/components/openModal.js?");
 
 /***/ }),
 
@@ -36,7 +56,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_openModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/openModal */ \"./src/components/openModal.js\");\n/* harmony import */ var _components_addTask__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/addTask */ \"./src/components/addTask.js\");\n\r\n\r\n\r\n// open and close modal //////////////\r\nconst openModalButtons = document.querySelectorAll(\"[data-modal-target]\");\r\nconst closeModalButtons = document.querySelectorAll(\"[data-close-button]\");\r\nconst overlay = document.getElementById(\"overlay\");\r\nconst alternativeModal = document.querySelector(\".modal\");\r\n\r\nopenModalButtons.forEach((button) => {\r\n    button.addEventListener(\"click\", () => {\r\n        const modal = document.querySelector(button.dataset.modalTarget);\r\n        (0,_components_openModal__WEBPACK_IMPORTED_MODULE_0__.openModal)(modal);\r\n    });\r\n});\r\n\r\noverlay.addEventListener(\"click\", () => {\r\n    const modals = document.querySelectorAll(\".modal.active\");\r\n    modals.forEach((modal) => {\r\n        (0,_components_openModal__WEBPACK_IMPORTED_MODULE_0__.closeModal)(modal);\r\n    });\r\n});\r\n\r\ncloseModalButtons.forEach((button) => {\r\n    button.addEventListener(\"click\", () => {\r\n        const modal = button.closest(\".modal\");\r\n        (0,_components_openModal__WEBPACK_IMPORTED_MODULE_0__.closeModal)(modal);\r\n    });\r\n});\r\n// ADD TASK\r\nconst addTaskButton = document.getElementById(\"add-task\");\r\nconst modalBody = document.querySelector('.modal-body')\r\n\r\nlet tasks = [];\r\n\r\naddTaskButton.addEventListener(\"click\", (e) => {\r\n    e.preventDefault();\r\n    if ((0,_components_addTask__WEBPACK_IMPORTED_MODULE_1__.addTask)() === undefined) {\r\n        const errorMessage = document.createElement('p')\r\n        errorMessage.textContent = \"An error has occured\"\r\n        errorMessage.style.color = \"red\"\r\n        modalBody.appendChild(errorMessage)\r\n        setTimeout(() => {\r\n            errorMessage.remove()\r\n        }, 1000)\r\n        return\r\n    }\r\n    tasks.push((0,_components_addTask__WEBPACK_IMPORTED_MODULE_1__.addTask)());\r\n    console.log(tasks);\r\n    (0,_components_openModal__WEBPACK_IMPORTED_MODULE_0__.closeModal)(alternativeModal);\r\n});\r\n\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_openModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/openModal */ \"./src/components/openModal.js\");\n/* harmony import */ var _components_addTask__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/addTask */ \"./src/components/addTask.js\");\n/* harmony import */ var _components_displayTask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/displayTask */ \"./src/components/displayTask.js\");\n/* harmony import */ var _components_deleteTask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/deleteTask */ \"./src/components/deleteTask.js\");\n\n\n\n// open and close modal //////////////\nconst openModalButtons = document.querySelectorAll(\"[data-modal-target]\");\nconst closeModalButtons = document.querySelectorAll(\"[data-close-button]\");\nconst overlay = document.getElementById(\"overlay\");\nconst alternativeModal = document.querySelector(\".modal\");\n\nopenModalButtons.forEach((button) => {\n  button.addEventListener(\"click\", () => {\n    const modal = document.querySelector(button.dataset.modalTarget);\n    (0,_components_openModal__WEBPACK_IMPORTED_MODULE_0__.openModal)(modal);\n  });\n});\n\noverlay.addEventListener(\"click\", () => {\n  const modals = document.querySelectorAll(\".modal.active\");\n  modals.forEach((modal) => {\n    (0,_components_openModal__WEBPACK_IMPORTED_MODULE_0__.closeModal)(modal);\n  });\n});\n\ncloseModalButtons.forEach((button) => {\n  button.addEventListener(\"click\", () => {\n    const modal = button.closest(\".modal\");\n    (0,_components_openModal__WEBPACK_IMPORTED_MODULE_0__.closeModal)(modal);\n  });\n});\n// ADD AND DISPLAY TASK\n\nconst addTaskButton = document.getElementById(\"add-task\");\nconst modalBody = document.querySelector(\".modal-body\");\nconst tasksBody = document.querySelector(\".tasks-body\");\nconst taskTitleInput = document.getElementById(\"task_title\");\nconst taskDescInput = document.getElementById(\"task_description\");\n\nlet tasks = [\n  //   {\n  //     title: \"Task 1\",\n  //     description: \"This is task 1\",\n  //     due_date: \"2021-01-01\",\n  //     important: \"High\",\n  //   },\n  //   {\n  //     title: \"Task 2\",\n  //     description: \"This is task 2\",\n  //     due_date: \"2021-01-02\",\n  //     important: \"Medium\",\n  //   }\n];\n\ntasks.forEach((task) => {\n  (0,_components_displayTask__WEBPACK_IMPORTED_MODULE_2__.displayTasks)(task.title, task.description, task.due_date, task.important);\n});\n\nconsole.log(tasks);\n\naddTaskButton.addEventListener(\"click\", (e) => {\n  e.preventDefault();\n  if ((0,_components_addTask__WEBPACK_IMPORTED_MODULE_1__.addTask)() === undefined) {\n    const errorMessage = document.createElement(\"p\");\n    errorMessage.textContent = \"An error has occured\";\n    errorMessage.style.color = \"red\";\n    modalBody.appendChild(errorMessage);\n    setTimeout(() => {\n      errorMessage.remove();\n    }, 1000);\n    return;\n  }\n  tasks.push((0,_components_addTask__WEBPACK_IMPORTED_MODULE_1__.addTask)());\n  console.log(tasks);\n  (0,_components_openModal__WEBPACK_IMPORTED_MODULE_0__.closeModal)(alternativeModal);\n  // DISPLAY TASKS\n  tasksBody.innerHTML = \"\";\n  taskTitleInput.value = \"\";\n  taskDescInput.value = \"\";\n  tasks.forEach((task) => {\n    (0,_components_displayTask__WEBPACK_IMPORTED_MODULE_2__.displayTasks)(task.title, task.description, task.due_date, task.important);\n  });\n});\n\n// DELETE TASK //////////////\n// use trash can logo to delete task from DOM and from tasks array\ntasksBody.addEventListener(\"click\", (e) => {\n  if (e.target.classList.contains(\"trash-can-logo\")) {\n    (0,_components_deleteTask__WEBPACK_IMPORTED_MODULE_3__.deleteTask)(e);\n    tasks = tasks.filter((task) => {\n      return (\n        task.title !== e.target.closest(\".task\").querySelector(\"h4\").textContent\n      );\n    });\n    console.log(tasks);\n  }\n});\n\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/assets/trash-can-svgrepo-com.svg":
+/*!**********************************************!*\
+  !*** ./src/assets/trash-can-svgrepo-com.svg ***!
+  \**********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"f2193089ad4b60ed8b4b.svg\";\n\n//# sourceURL=webpack://todo-list/./src/assets/trash-can-svgrepo-com.svg?");
 
 /***/ })
 
@@ -79,6 +109,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _com
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -93,6 +135,26 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _com
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
